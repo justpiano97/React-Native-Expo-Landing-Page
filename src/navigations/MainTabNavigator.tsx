@@ -4,6 +4,7 @@ import ScreenNames from '../config/ScreenNames';
 import VectorIcon from '../utils/common/VectorIcon';
 import Home from '../pages/Home';
 import { View, Text } from 'react-native';
+import Category from '../pages/Category';
 
 const MainTabNavigator: React.FC = () => {
   const MainTab = createBottomTabNavigator();
@@ -34,7 +35,7 @@ const MainTabNavigator: React.FC = () => {
           ),
         }}
         name={ScreenNames.MainTabName.Category}
-        component={Home}
+        component={Category}
       />
       <MainTab.Screen
         options={{
