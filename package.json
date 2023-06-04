@@ -18,6 +18,7 @@
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.8",
+    "react-native-animated-pagination-dot": "^0.4.0",
     "react-native-gesture-handler": "~2.9.0",
     "react-native-reanimated": "2.6.0",
     "react-native-reanimated-carousel": "^3.3.2",

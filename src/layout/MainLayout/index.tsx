@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { View } from 'react-native';
+
 import Header from '../Header';
 
 type Props = {
@@ -7,7 +8,7 @@ type Props = {
 };
 
 const MainLayout: React.FC<Props> = ({ children }) => (
-  <View style={{ flex: 1, paddingVertical: 45, backgroundColor: 'white' }}>
+  <View style={{ flex: 1, paddingTop: 45, backgroundColor: 'white' }}>
     <Header />
     {children}
   </View>

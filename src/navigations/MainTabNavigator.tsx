@@ -1,10 +1,11 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
+import { View } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import Category from '../pages/Category';
+import Home from '../pages/Home';
 import ScreenNames from '../config/ScreenNames';
 import VectorIcon from '../utils/common/VectorIcon';
-import Home from '../pages/Home';
-import { View, Text } from 'react-native';
-import Category from '../pages/Category';
 
 const MainTabNavigator: React.FC = () => {
   const MainTab = createBottomTabNavigator();
