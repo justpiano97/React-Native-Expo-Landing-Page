@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+
 import VectorIcon from '../../utils/common/VectorIcon';
 import SearchInput from '../../components/base/SearchInput';
 

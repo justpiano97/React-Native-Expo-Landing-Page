@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { View } from 'react-native';
+
 import Header from '../Header';
 
 type Props = {

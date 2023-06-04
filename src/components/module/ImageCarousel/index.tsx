@@ -1,12 +1,6 @@
 import * as React from 'react';
-import { Dimensions, View, Image, StyleSheet } from 'react-native';
+import { Dimensions, View, Image } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
-
-const imageList = [
-  { url: '../../../../assets/win.jpg' },
-  { url: '../../../../assets/snow.jpg' },
-  { url: '../../../../assets/dev.jpg' },
-];
 
 const images = [
   {
@@ -23,15 +17,21 @@ const images = [
   },
 ];
 
-function ImageCarousel() {
-  const width = Dimensions.get('window').width;
+type Props = {
+  width?: number;
+  height?: number;
+  padding?: number;
+};
+
+const ImageCarousel: React.FC<Props> = ({ width, height, padding = 0 }) => {
+  const fullWidth = Dimensions.get('window').width;
 
   return (
     <View>
       <Carousel
         loop
-        width={width}
-        height={200}
+        width={width ?? fullWidth - padding}
+        height={height ?? 200}
         autoPlay={true}
         data={images}
         scrollAnimationDuration={3000}
@@ -49,6 +49,6 @@ function ImageCarousel() {
       />
     </View>
   );
-}
+};
 
 export default ImageCarousel;
