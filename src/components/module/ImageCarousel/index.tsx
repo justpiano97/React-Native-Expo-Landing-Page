@@ -1,6 +1,7 @@
-import * as React from 'react';
-import { Dimensions, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { Dimensions, View, Image, StyleSheet } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
+import PaginationDot from 'react-native-animated-pagination-dot';
 
 const images = [
   {
@@ -25,9 +26,9 @@ type Props = {
 
 const ImageCarousel: React.FC<Props> = ({ width, height, padding = 0 }) => {
   const fullWidth = Dimensions.get('window').width;
-
+  const [curPage, setCurPage] = useState<number>(0);
   return (
-    <View>
+    <View style={{ position: 'relative' }}>
       <Carousel
         loop
         width={width ?? fullWidth - padding}
@@ -36,6 +37,7 @@ const ImageCarousel: React.FC<Props> = ({ width, height, padding = 0 }) => {
         data={images}
         scrollAnimationDuration={3000}
         pagingEnabled={true}
+        onSnapToItem={(index) => setCurPage(index)}
         renderItem={(value) => (
           <View
             style={{
@@ -47,8 +49,22 @@ const ImageCarousel: React.FC<Props> = ({ width, height, padding = 0 }) => {
           </View>
         )}
       />
+      <View style={styles.dotWrapper}>
+        <PaginationDot activeDotColor={'black'} curPage={curPage} maxPage={images?.length ?? 0} />
+      </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  dotWrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    position: 'absolute',
+    bottom: 3,
+    width: '100%',
+  },
+});
 
 export default ImageCarousel;
